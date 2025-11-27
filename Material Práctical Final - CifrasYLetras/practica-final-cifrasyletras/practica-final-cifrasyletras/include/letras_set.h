@@ -1,5 +1,7 @@
-#ifndef __LETTER_SET_H__
-#define __LETTER_SET_H__
+#ifndef __LETRAS_SET_H__
+#define __LETRAS_SET_H__
+
+// MAIN PARA EL PROGRAMA DE LAS LETRAS
 
 /**
  * @brief TDA LetterInfo
