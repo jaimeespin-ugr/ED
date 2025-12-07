@@ -6,4 +6,9 @@
  *
  */
 
+ class BolsaLetras{
+    BolsaLetras();
+
+ };
+
 #endif
