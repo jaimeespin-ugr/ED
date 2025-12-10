@@ -17,6 +17,8 @@ class ABB {
     bool Existe (const T & e) const;
     void insertar (const T & e);
     void borrar (const T & e);
+    bintree<T>& getArbol() { return arbolbb; }
+    const bintree<T>& getArbol() const { return arbolbb; }
     //…………………………….
     class iterator {
         private:
@@ -34,5 +36,7 @@ class ABB {
     iterator end();
     ~ABB();
 };
+
+#include "abb.cpp"
 
 #endif

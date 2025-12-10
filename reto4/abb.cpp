@@ -65,11 +65,12 @@ void ABB<T>::insertar (const T & e){
     }
 
 template <class T>
-void ABB<T>::borrar (const T & e){
+void ABB<T>::borrar (const T & elem){
     if(arbolbb.empty()){
         return;
     }
 
+        T e = elem;
         typename bintree<T>::node n = arbolbb.root();
         bool encontrado = false;
         while(!encontrado && !n.null()){
@@ -123,9 +124,12 @@ void ABB<T>::borrar (const T & e){
                     while(!mhi.right().null()){
                         mhi = mhi.right();
                     }
-                    *n = *mhi;
-                    borrar(*mhi);
-                    return;
+                    T valor_mhi = *mhi;
+                    *n = valor_mhi;
+                    // Ahora buscamos y eliminamos mhi (que es hoja o tiene solo hijo izquierdo)
+                    n = n.left();
+                    encontrado = false;
+                    e = valor_mhi;
                 }
             }else if(e < *n){
                 n = n.left();
@@ -174,3 +178,5 @@ typename ABB<T>::iterator ABB<T>::end(){
 
 template <class T>
 ABB<T>::~ABB(){}
+
+template class ABB<int>;
