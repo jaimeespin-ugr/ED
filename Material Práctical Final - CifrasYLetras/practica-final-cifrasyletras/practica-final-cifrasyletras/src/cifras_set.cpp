@@ -5,29 +5,50 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <set>
 using namespace std;
 
 
 //Funciones de generar números
-vector<int> generarConjunto(){
-    vector<int> v;
+multiset<int> generarConjunto(){
+    multiset<int> v;
     for(int i=0; i<6; i++){
         int numero = rand() % (13 + 1);
-        v.push_back(C[numero]);
+        v.insert(C[numero]);
     }
 
     return v;
 }
 
 //Parte extra, 6 numero aleatorios fuera del conjunto
-vector<int> generar(){
-    vector<int> v;
+multiset<int> generar(){
+    multiset<int> v;
     for(int i=0; i<6; i++){
         int numero = 1 + rand() % (100 - 1 + 1);
-        v.push_back(numero);
+        v.insert(numero);
     }
 
     return v;
+}
+
+bool es_combinacion_magica(const multiset<int>& conjunto_magico) {
+    for (int target = 100; target <= 999; ++target) {
+        Cifras juego; 
+        bool encontrado = juego.resolver_juego(conjunto_magico, target);
+        if (!encontrado) {
+            return false;
+        }
+    }
+    
+    return true; 
+}
+
+multiset<int> generarConjuntoMagico(){
+    multiset<int> conjunto = generarConjunto();
+    while(!es_combinacion_magica(conjunto)){
+        conjunto = generarConjunto();
+    }
+    return conjunto;
 }
 
 
@@ -57,7 +78,7 @@ int generarNumero(){
         return mejor_resultado_encontrado;
     };
 
-    bool Cifras::resolver_juego(const vector<int>& numeros_iniciales, int target){
+    bool Cifras::resolver_juego(const multiset<int>& numeros_iniciales, int target){
         operaciones.clear(); 
         mejor_resultado_encontrado = 0; 
         objetivo = target;
@@ -65,28 +86,28 @@ int generarNumero(){
         return buscar_solucion(numeros_iniciales, target); 
     };
 
-    bool Cifras::buscar_solucion(vector<int> restantes, int objetivo){
-        for(int i = 0; i<restantes.size(); i++){
-            for(int j = i+1; j<restantes.size(); j++){
-                int a = restantes[i];
-                int b = restantes[j];
+    bool Cifras::buscar_solucion(multiset<int> restantes, int objetivo){
+        for(auto it1 = restantes.begin(); it1 != restantes.end(); ++it1){
+            for(auto it2 = next(it1); it2 != restantes.end(); ++it2){
+                int a = *it1;
+                int b = *it2;
                 
                 // División a/b
                 if(b != 0 && a%b==0){
                     int r=a/b;
-                    if(abs(objetivo-r) < abs(objetivo-mejor_resultado_encontrado)){
+                    if(mejor_resultado_encontrado == 0 || abs(objetivo-r) < abs(objetivo-mejor_resultado_encontrado)){
                         mejor_resultado_encontrado = r;
                     }
                     if(r==objetivo){
-                        operaciones.push_back(to_string(a) + " / " + to_string(b));
+                        operaciones.push_back(to_string(a) + " / " + to_string(b)+"="+to_string(r));
                         return true;
                     }else{
-                        vector<int> nueva_lista = restantes;
-                        nueva_lista.erase(nueva_lista.begin()+j);
-                        nueva_lista.erase(nueva_lista.begin()+i);
-                        nueva_lista.push_back(r);
+                        multiset<int> nueva_lista = restantes;
+                        nueva_lista.erase(nueva_lista.find(a));
+                        nueva_lista.erase(nueva_lista.find(b));
+                        nueva_lista.insert(r);
                         if (buscar_solucion(nueva_lista, objetivo)) {
-                            operaciones.push_back(to_string(a) + " / " + to_string(b));
+                            operaciones.push_back(to_string(a) + " / " + to_string(b)+"="+to_string(r));
                             return true;
                         }
                     }
@@ -95,19 +116,19 @@ int generarNumero(){
                 // Resta a-b
                 if(a-b>=0){
                     int r=a-b;
-                    if(abs(objetivo-r) < abs(objetivo-mejor_resultado_encontrado)){
+                    if(mejor_resultado_encontrado == 0 || abs(objetivo-r) < abs(objetivo-mejor_resultado_encontrado)){
                         mejor_resultado_encontrado = r;
                     }
                     if(r==objetivo){
-                        operaciones.push_back(to_string(a) + " - " + to_string(b));
+                        operaciones.push_back(to_string(a) + " - " + to_string(b)+"="+to_string(r));
                         return true;
                     }else{
-                        vector<int> nueva_lista = restantes;
-                        nueva_lista.erase(nueva_lista.begin()+j);
-                        nueva_lista.erase(nueva_lista.begin()+i);
-                        nueva_lista.push_back(r);
+                        multiset<int> nueva_lista = restantes;
+                        nueva_lista.erase(nueva_lista.find(a));
+                        nueva_lista.erase(nueva_lista.find(b));
+                        nueva_lista.insert(r);
                         if (buscar_solucion(nueva_lista, objetivo)) {
-                            operaciones.push_back(to_string(a) + " - " + to_string(b));
+                            operaciones.push_back(to_string(a) + " - " + to_string(b)+"="+to_string(r));
                             return true;
                         }
                     }
@@ -116,19 +137,19 @@ int generarNumero(){
                 // División b/a
                 if(a != 0 && b%a==0){
                     int r=b/a;
-                    if(abs(objetivo-r) < abs(objetivo-mejor_resultado_encontrado)){
+                    if(mejor_resultado_encontrado == 0 || abs(objetivo-r) < abs(objetivo-mejor_resultado_encontrado)){
                         mejor_resultado_encontrado = r;
                     }
                     if(r==objetivo){
-                        operaciones.push_back(to_string(b) + " / " + to_string(a));
+                        operaciones.push_back(to_string(b) + " / " + to_string(a)+"="+to_string(r));
                         return true;
                     }else{
-                        vector<int> nueva_lista = restantes;
-                        nueva_lista.erase(nueva_lista.begin()+j);
-                        nueva_lista.erase(nueva_lista.begin()+i);
-                        nueva_lista.push_back(r);
+                        multiset<int> nueva_lista = restantes;
+                        nueva_lista.erase(nueva_lista.find(a));
+                        nueva_lista.erase(nueva_lista.find(b));
+                        nueva_lista.insert(r);
                         if (buscar_solucion(nueva_lista, objetivo)) {
-                            operaciones.push_back(to_string(b) + " / " + to_string(a));
+                            operaciones.push_back(to_string(b) + " / " + to_string(a)+"="+to_string(r));
                             return true;
                         }
                     }
@@ -137,19 +158,19 @@ int generarNumero(){
                 // Resta b-a
                 if(b-a>=0){
                     int r=b-a;
-                    if(abs(objetivo-r) < abs(objetivo-mejor_resultado_encontrado)){
+                    if(mejor_resultado_encontrado == 0 || abs(objetivo-r) < abs(objetivo-mejor_resultado_encontrado)){
                         mejor_resultado_encontrado = r;
                     }
                     if(r==objetivo){
-                        operaciones.push_back(to_string(b) + " - " + to_string(a));
+                        operaciones.push_back(to_string(b) + " - " + to_string(a)+"="+to_string(r));
                         return true;
                     }else{
-                        vector<int> nueva_lista = restantes;
-                        nueva_lista.erase(nueva_lista.begin()+j);
-                        nueva_lista.erase(nueva_lista.begin()+i);
-                        nueva_lista.push_back(r);
+                        multiset<int> nueva_lista = restantes;
+                        nueva_lista.erase(nueva_lista.find(a));
+                        nueva_lista.erase(nueva_lista.find(b));
+                        nueva_lista.insert(r);
                         if (buscar_solucion(nueva_lista, objetivo)) {
-                            operaciones.push_back(to_string(b) + " - " + to_string(a));
+                            operaciones.push_back(to_string(b) + " - " + to_string(a)+"="+to_string(r));
                             return true;
                         }
                     }
@@ -157,38 +178,38 @@ int generarNumero(){
                 
                 // Suma a+b
                 if(a+b==objetivo){
-                    operaciones.push_back(to_string(a) + " + " + to_string(b));
+                    operaciones.push_back(to_string(a) + " + " + to_string(b)+"="+to_string(a+b));
                     return true;
                 }else{
                     int r=a+b;
-                    if(abs(objetivo-r) < abs(objetivo-mejor_resultado_encontrado)){
+                    if(mejor_resultado_encontrado == 0 || abs(objetivo-r) < abs(objetivo-mejor_resultado_encontrado)){
                         mejor_resultado_encontrado = r;
                     }
-                    vector<int> nueva_lista = restantes;
-                    nueva_lista.erase(nueva_lista.begin()+j);
-                    nueva_lista.erase(nueva_lista.begin()+i);
-                    nueva_lista.push_back(r);
+                    multiset<int> nueva_lista = restantes;
+                    nueva_lista.erase(nueva_lista.find(a));
+                    nueva_lista.erase(nueva_lista.find(b));
+                    nueva_lista.insert(r);
                     if (buscar_solucion(nueva_lista, objetivo)) {
-                        operaciones.push_back(to_string(a) + " + " + to_string(b));
+                        operaciones.push_back(to_string(a) + " + " + to_string(b)+"="+to_string(r));
                         return true;
                     }
                 }
                 
                 // Multiplicación a*b
                 if(a*b==objetivo){
-                    operaciones.push_back(to_string(a) + " * " + to_string(b));
+                    operaciones.push_back(to_string(a) + " * " + to_string(b)+"="+to_string(a*b));
                     return true;
                 }else{
                     int r=a*b;
-                    if(abs(objetivo-r) < abs(objetivo-mejor_resultado_encontrado)){
+                    if(mejor_resultado_encontrado == 0 || abs(objetivo-r) < abs(objetivo-mejor_resultado_encontrado)){
                         mejor_resultado_encontrado = r;
                     }
-                    vector<int> nueva_lista = restantes;
-                    nueva_lista.erase(nueva_lista.begin()+j);
-                    nueva_lista.erase(nueva_lista.begin()+i);
-                    nueva_lista.push_back(r);
+                    multiset<int> nueva_lista = restantes;
+                    nueva_lista.erase(nueva_lista.find(a));
+                    nueva_lista.erase(nueva_lista.find(b));
+                    nueva_lista.insert(r);
                     if (buscar_solucion(nueva_lista, objetivo)) {
-                        operaciones.push_back(to_string(a) + " * " + to_string(b));
+                        operaciones.push_back(to_string(a) + " * " + to_string(b)+"="+to_string(r));
                         return true;
                     }
                 }
@@ -198,11 +219,20 @@ int generarNumero(){
     };
 
 //Función extra para permitir jugar al usuario
-void operar(int a, int b, char oper, vector<int> &conjunto){
-    if(find(conjunto.begin(), conjunto.end(), a) == conjunto.end() || find(conjunto.begin(), conjunto.end(), b) == conjunto.end()){
+void operar(int a, int b, char oper, multiset<int> &conjunto){
+    if(conjunto.find(a) == conjunto.end() || conjunto.find(b) == conjunto.end()){
         cout<<"El numero no está en el conjunto"<<endl;
         return;
     }
+    
+    if(a == b){
+        int count = conjunto.count(a);
+        if(count < 2){
+            cout<<"No hay suficientes números "<<a<<" en el conjunto"<<endl;
+            return;
+        }
+    }
+    
     int result;
     switch (oper)
     {
@@ -221,6 +251,10 @@ void operar(int a, int b, char oper, vector<int> &conjunto){
         result=a*b;
         break;
     case '/':
+        if(b == 0){
+            cout<<"No se puede dividir por cero"<<endl;
+            return;
+        }
         if(a%b==0){
             result=a/b;
         }else{
@@ -230,24 +264,24 @@ void operar(int a, int b, char oper, vector<int> &conjunto){
         break;
     default:
         cout<<"Operador no válido"<<endl;
-        break;
+        return;
     }
 
-    auto it = find(conjunto.begin(), conjunto.end(), a);
+    auto it = conjunto.find(a);
     if (it != conjunto.end()){
         conjunto.erase(it);
     } 
 
-    it = std::find(conjunto.begin(), conjunto.end(), b);
+    it = conjunto.find(b);
     if (it != conjunto.end()){
         conjunto.erase(it);
     }
 
-    conjunto.push_back(result);
+    conjunto.insert(result);
     cout<<result<<endl;
 }
 
-void imprimirConjunto(vector<int> conjunto){
+void imprimirConjunto(multiset<int> conjunto){
     cout << "Números: ";
     for (int n : conjunto) {
         cout << n << " ";
@@ -260,16 +294,17 @@ int main(){
 
     int opc;
     cout<<"¿Quieres jugar con:"<<endl;
-    cout<<"1) Combinación mágica (siempre hay solución)"<<endl;
+    cout<<"1) Combinación mágica (siempre hay solución)/muy poco eficiente"<<endl;
     cout<<"2) Números aleatorios (más difícil)"<<endl;
     cin>>opc;
-    vector<int> conjunto;
-    if (opc == 2){
-        conjunto = generar();
+    multiset<int> conjunto;
+    if (opc == 1){
+        conjunto = generarConjuntoMagico();
     } else{
         conjunto = generarConjunto();
+        //conjunto = generar();
     }
-    vector<int> numeros = conjunto;
+    multiset<int> numeros = conjunto;
     int objetivo = generarNumero();
 
     cout << "Objetivo: " << objetivo <<endl;
@@ -291,8 +326,9 @@ int main(){
             }
             operar(a, b, oper, conjunto);
             imprimirConjunto(conjunto);
-            if(conjunto.back() == objetivo){
+            if(conjunto.find(objetivo) != conjunto.end()){
                 victoria = true;
+                break;
             }
             if(conjunto.size() == 1){
                 break;

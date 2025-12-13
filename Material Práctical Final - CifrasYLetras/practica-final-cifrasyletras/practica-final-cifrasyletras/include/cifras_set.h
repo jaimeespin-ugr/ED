@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <set>
 
 using namespace std;
 
@@ -11,7 +12,7 @@ int C[14]={1,2,3,4,5,6,7,8,9, 10, 25, 50, 75, 100};
 class Cifras{
     private:
     int valor_actual;
-    vector<int> numeros_restantes;
+    multiset<int> numeros_restantes;
     int objetivo;
 
     vector<string> operaciones;
@@ -26,10 +27,10 @@ class Cifras{
 
     int get_mejor_resultado_encontrado();
 
-    bool resolver_juego(const vector<int>& numeros_iniciales, int target);
+    bool resolver_juego(const multiset<int>& numeros_iniciales, int target);
 
     private:
-    bool buscar_solucion(vector<int> restantes, int objetivo);
+    bool buscar_solucion(multiset<int> restantes, int objetivo);
 };
 // MAIN PARA EL PROGRAMA DE LAS CIFRAS
 
