@@ -21,22 +21,12 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 # ========================================
 set(SOURCES_COMMON
     ${BASE_FOLDER}/src/bolsa_letras.cpp
-    ${BASE_FOLDER}/src/cifras_set.cpp        # módulo
     ${BASE_FOLDER}/src/diccionario.cpp
     ${BASE_FOLDER}/src/letras.cpp
-    ${BASE_FOLDER}/src/letras_set.cpp        # módulo
 )
 
 # ========================================
-# Ejecutable 1: cifras_set (main)
-# ========================================
-add_executable(cifras_set
-    ${BASE_FOLDER}/src/cifras_set.cpp    # main
-    ${SOURCES_COMMON}
-)
-
-# ========================================
-# Ejecutable 2: letras_set (main)
+# Ejecutable: letras_set (main)
 # ========================================
 add_executable(letras_set
     ${BASE_FOLDER}/src/letras_set.cpp    # main

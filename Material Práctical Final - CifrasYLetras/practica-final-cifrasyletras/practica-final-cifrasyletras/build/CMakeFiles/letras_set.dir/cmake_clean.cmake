@@ -3,8 +3,6 @@ file(REMOVE_RECURSE
   "/home/jaime/universidad/Practicas/ED/Material Práctical Final - CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/bin/letras_set.pdb"
   "CMakeFiles/letras_set.dir/src/bolsa_letras.cpp.o"
   "CMakeFiles/letras_set.dir/src/bolsa_letras.cpp.o.d"
-  "CMakeFiles/letras_set.dir/src/cifras_set.cpp.o"
-  "CMakeFiles/letras_set.dir/src/cifras_set.cpp.o.d"
   "CMakeFiles/letras_set.dir/src/diccionario.cpp.o"
   "CMakeFiles/letras_set.dir/src/diccionario.cpp.o.d"
   "CMakeFiles/letras_set.dir/src/letras.cpp.o"

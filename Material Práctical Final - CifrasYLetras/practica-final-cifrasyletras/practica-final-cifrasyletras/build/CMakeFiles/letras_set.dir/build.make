@@ -97,24 +97,10 @@ CMakeFiles/letras_set.dir/src/bolsa_letras.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/letras_set.dir/src/bolsa_letras.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/jaime/universidad/Practicas/ED/Material Práctical Final - CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/src/bolsa_letras.cpp" -o CMakeFiles/letras_set.dir/src/bolsa_letras.cpp.s
 
-CMakeFiles/letras_set.dir/src/cifras_set.cpp.o: CMakeFiles/letras_set.dir/flags.make
-CMakeFiles/letras_set.dir/src/cifras_set.cpp.o: /home/jaime/universidad/Practicas/ED/Material\ Práctical\ Final\ -\ CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/src/cifras_set.cpp
-CMakeFiles/letras_set.dir/src/cifras_set.cpp.o: CMakeFiles/letras_set.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/jaime/universidad/Practicas/ED/Material Práctical Final - CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/letras_set.dir/src/cifras_set.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/letras_set.dir/src/cifras_set.cpp.o -MF CMakeFiles/letras_set.dir/src/cifras_set.cpp.o.d -o CMakeFiles/letras_set.dir/src/cifras_set.cpp.o -c "/home/jaime/universidad/Practicas/ED/Material Práctical Final - CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/src/cifras_set.cpp"
-
-CMakeFiles/letras_set.dir/src/cifras_set.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/letras_set.dir/src/cifras_set.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/jaime/universidad/Practicas/ED/Material Práctical Final - CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/src/cifras_set.cpp" > CMakeFiles/letras_set.dir/src/cifras_set.cpp.i
-
-CMakeFiles/letras_set.dir/src/cifras_set.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/letras_set.dir/src/cifras_set.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/jaime/universidad/Practicas/ED/Material Práctical Final - CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/src/cifras_set.cpp" -o CMakeFiles/letras_set.dir/src/cifras_set.cpp.s
-
 CMakeFiles/letras_set.dir/src/diccionario.cpp.o: CMakeFiles/letras_set.dir/flags.make
 CMakeFiles/letras_set.dir/src/diccionario.cpp.o: /home/jaime/universidad/Practicas/ED/Material\ Práctical\ Final\ -\ CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/src/diccionario.cpp
 CMakeFiles/letras_set.dir/src/diccionario.cpp.o: CMakeFiles/letras_set.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/jaime/universidad/Practicas/ED/Material Práctical Final - CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/letras_set.dir/src/diccionario.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/jaime/universidad/Practicas/ED/Material Práctical Final - CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/letras_set.dir/src/diccionario.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/letras_set.dir/src/diccionario.cpp.o -MF CMakeFiles/letras_set.dir/src/diccionario.cpp.o.d -o CMakeFiles/letras_set.dir/src/diccionario.cpp.o -c "/home/jaime/universidad/Practicas/ED/Material Práctical Final - CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/src/diccionario.cpp"
 
 CMakeFiles/letras_set.dir/src/diccionario.cpp.i: cmake_force
@@ -128,7 +114,7 @@ CMakeFiles/letras_set.dir/src/diccionario.cpp.s: cmake_force
 CMakeFiles/letras_set.dir/src/letras.cpp.o: CMakeFiles/letras_set.dir/flags.make
 CMakeFiles/letras_set.dir/src/letras.cpp.o: /home/jaime/universidad/Practicas/ED/Material\ Práctical\ Final\ -\ CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/src/letras.cpp
 CMakeFiles/letras_set.dir/src/letras.cpp.o: CMakeFiles/letras_set.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/jaime/universidad/Practicas/ED/Material Práctical Final - CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/letras_set.dir/src/letras.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/jaime/universidad/Practicas/ED/Material Práctical Final - CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/letras_set.dir/src/letras.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/letras_set.dir/src/letras.cpp.o -MF CMakeFiles/letras_set.dir/src/letras.cpp.o.d -o CMakeFiles/letras_set.dir/src/letras.cpp.o -c "/home/jaime/universidad/Practicas/ED/Material Práctical Final - CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/src/letras.cpp"
 
 CMakeFiles/letras_set.dir/src/letras.cpp.i: cmake_force
@@ -143,7 +129,6 @@ CMakeFiles/letras_set.dir/src/letras.cpp.s: cmake_force
 letras_set_OBJECTS = \
 "CMakeFiles/letras_set.dir/src/letras_set.cpp.o" \
 "CMakeFiles/letras_set.dir/src/bolsa_letras.cpp.o" \
-"CMakeFiles/letras_set.dir/src/cifras_set.cpp.o" \
 "CMakeFiles/letras_set.dir/src/diccionario.cpp.o" \
 "CMakeFiles/letras_set.dir/src/letras.cpp.o"
 
@@ -152,12 +137,11 @@ letras_set_EXTERNAL_OBJECTS =
 
 /home/jaime/universidad/Practicas/ED/Material\ Práctical\ Final\ -\ CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/bin/letras_set: CMakeFiles/letras_set.dir/src/letras_set.cpp.o
 /home/jaime/universidad/Practicas/ED/Material\ Práctical\ Final\ -\ CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/bin/letras_set: CMakeFiles/letras_set.dir/src/bolsa_letras.cpp.o
-/home/jaime/universidad/Practicas/ED/Material\ Práctical\ Final\ -\ CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/bin/letras_set: CMakeFiles/letras_set.dir/src/cifras_set.cpp.o
 /home/jaime/universidad/Practicas/ED/Material\ Práctical\ Final\ -\ CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/bin/letras_set: CMakeFiles/letras_set.dir/src/diccionario.cpp.o
 /home/jaime/universidad/Practicas/ED/Material\ Práctical\ Final\ -\ CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/bin/letras_set: CMakeFiles/letras_set.dir/src/letras.cpp.o
 /home/jaime/universidad/Practicas/ED/Material\ Práctical\ Final\ -\ CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/bin/letras_set: CMakeFiles/letras_set.dir/build.make
 /home/jaime/universidad/Practicas/ED/Material\ Práctical\ Final\ -\ CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/bin/letras_set: CMakeFiles/letras_set.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/jaime/universidad/Practicas/ED/Material Práctical Final - CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable \"/home/jaime/universidad/Practicas/ED/Material Práctical Final - CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/bin/letras_set\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/jaime/universidad/Practicas/ED/Material Práctical Final - CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable \"/home/jaime/universidad/Practicas/ED/Material Práctical Final - CifrasYLetras/practica-final-cifrasyletras/practica-final-cifrasyletras/bin/letras_set\""
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/letras_set.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

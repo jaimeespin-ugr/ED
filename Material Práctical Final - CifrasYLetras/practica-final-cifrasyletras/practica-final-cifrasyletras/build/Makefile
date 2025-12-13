@@ -117,19 +117,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named cifras_set
-
-# Build rule for target.
-cifras_set: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cifras_set
-.PHONY : cifras_set
-
-# fast build rule for target.
-cifras_set/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cifras_set.dir/build.make CMakeFiles/cifras_set.dir/build
-.PHONY : cifras_set/fast
-
-#=============================================================================
 # Target rules for targets named letras_set
 
 # Build rule for target.
@@ -160,7 +147,6 @@ src/bolsa_letras.o: src/bolsa_letras.cpp.o
 
 # target to build an object file
 src/bolsa_letras.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cifras_set.dir/build.make CMakeFiles/cifras_set.dir/src/bolsa_letras.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/letras_set.dir/build.make CMakeFiles/letras_set.dir/src/bolsa_letras.cpp.o
 .PHONY : src/bolsa_letras.cpp.o
 
@@ -169,7 +155,6 @@ src/bolsa_letras.i: src/bolsa_letras.cpp.i
 
 # target to preprocess a source file
 src/bolsa_letras.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cifras_set.dir/build.make CMakeFiles/cifras_set.dir/src/bolsa_letras.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/letras_set.dir/build.make CMakeFiles/letras_set.dir/src/bolsa_letras.cpp.i
 .PHONY : src/bolsa_letras.cpp.i
 
@@ -178,43 +163,14 @@ src/bolsa_letras.s: src/bolsa_letras.cpp.s
 
 # target to generate assembly for a file
 src/bolsa_letras.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cifras_set.dir/build.make CMakeFiles/cifras_set.dir/src/bolsa_letras.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/letras_set.dir/build.make CMakeFiles/letras_set.dir/src/bolsa_letras.cpp.s
 .PHONY : src/bolsa_letras.cpp.s
-
-src/cifras_set.o: src/cifras_set.cpp.o
-.PHONY : src/cifras_set.o
-
-# target to build an object file
-src/cifras_set.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cifras_set.dir/build.make CMakeFiles/cifras_set.dir/src/cifras_set.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/letras_set.dir/build.make CMakeFiles/letras_set.dir/src/cifras_set.cpp.o
-.PHONY : src/cifras_set.cpp.o
-
-src/cifras_set.i: src/cifras_set.cpp.i
-.PHONY : src/cifras_set.i
-
-# target to preprocess a source file
-src/cifras_set.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cifras_set.dir/build.make CMakeFiles/cifras_set.dir/src/cifras_set.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/letras_set.dir/build.make CMakeFiles/letras_set.dir/src/cifras_set.cpp.i
-.PHONY : src/cifras_set.cpp.i
-
-src/cifras_set.s: src/cifras_set.cpp.s
-.PHONY : src/cifras_set.s
-
-# target to generate assembly for a file
-src/cifras_set.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cifras_set.dir/build.make CMakeFiles/cifras_set.dir/src/cifras_set.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/letras_set.dir/build.make CMakeFiles/letras_set.dir/src/cifras_set.cpp.s
-.PHONY : src/cifras_set.cpp.s
 
 src/diccionario.o: src/diccionario.cpp.o
 .PHONY : src/diccionario.o
 
 # target to build an object file
 src/diccionario.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cifras_set.dir/build.make CMakeFiles/cifras_set.dir/src/diccionario.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/letras_set.dir/build.make CMakeFiles/letras_set.dir/src/diccionario.cpp.o
 .PHONY : src/diccionario.cpp.o
 
@@ -223,7 +179,6 @@ src/diccionario.i: src/diccionario.cpp.i
 
 # target to preprocess a source file
 src/diccionario.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cifras_set.dir/build.make CMakeFiles/cifras_set.dir/src/diccionario.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/letras_set.dir/build.make CMakeFiles/letras_set.dir/src/diccionario.cpp.i
 .PHONY : src/diccionario.cpp.i
 
@@ -232,7 +187,6 @@ src/diccionario.s: src/diccionario.cpp.s
 
 # target to generate assembly for a file
 src/diccionario.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cifras_set.dir/build.make CMakeFiles/cifras_set.dir/src/diccionario.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/letras_set.dir/build.make CMakeFiles/letras_set.dir/src/diccionario.cpp.s
 .PHONY : src/diccionario.cpp.s
 
@@ -241,7 +195,6 @@ src/letras.o: src/letras.cpp.o
 
 # target to build an object file
 src/letras.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cifras_set.dir/build.make CMakeFiles/cifras_set.dir/src/letras.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/letras_set.dir/build.make CMakeFiles/letras_set.dir/src/letras.cpp.o
 .PHONY : src/letras.cpp.o
 
@@ -250,7 +203,6 @@ src/letras.i: src/letras.cpp.i
 
 # target to preprocess a source file
 src/letras.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cifras_set.dir/build.make CMakeFiles/cifras_set.dir/src/letras.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/letras_set.dir/build.make CMakeFiles/letras_set.dir/src/letras.cpp.i
 .PHONY : src/letras.cpp.i
 
@@ -259,7 +211,6 @@ src/letras.s: src/letras.cpp.s
 
 # target to generate assembly for a file
 src/letras.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cifras_set.dir/build.make CMakeFiles/cifras_set.dir/src/letras.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/letras_set.dir/build.make CMakeFiles/letras_set.dir/src/letras.cpp.s
 .PHONY : src/letras.cpp.s
 
@@ -268,7 +219,6 @@ src/letras_set.o: src/letras_set.cpp.o
 
 # target to build an object file
 src/letras_set.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cifras_set.dir/build.make CMakeFiles/cifras_set.dir/src/letras_set.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/letras_set.dir/build.make CMakeFiles/letras_set.dir/src/letras_set.cpp.o
 .PHONY : src/letras_set.cpp.o
 
@@ -277,7 +227,6 @@ src/letras_set.i: src/letras_set.cpp.i
 
 # target to preprocess a source file
 src/letras_set.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cifras_set.dir/build.make CMakeFiles/cifras_set.dir/src/letras_set.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/letras_set.dir/build.make CMakeFiles/letras_set.dir/src/letras_set.cpp.i
 .PHONY : src/letras_set.cpp.i
 
@@ -286,7 +235,6 @@ src/letras_set.s: src/letras_set.cpp.s
 
 # target to generate assembly for a file
 src/letras_set.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cifras_set.dir/build.make CMakeFiles/cifras_set.dir/src/letras_set.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/letras_set.dir/build.make CMakeFiles/letras_set.dir/src/letras_set.cpp.s
 .PHONY : src/letras_set.cpp.s
 
@@ -299,14 +247,10 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... doc_doxygen"
-	@echo "... cifras_set"
 	@echo "... letras_set"
 	@echo "... src/bolsa_letras.o"
 	@echo "... src/bolsa_letras.i"
 	@echo "... src/bolsa_letras.s"
-	@echo "... src/cifras_set.o"
-	@echo "... src/cifras_set.i"
-	@echo "... src/cifras_set.s"
 	@echo "... src/diccionario.o"
 	@echo "... src/diccionario.i"
 	@echo "... src/diccionario.s"
