@@ -272,8 +272,11 @@ void JugarRonda(const Diccionario& D, const LettersSet& L, BolsaLetras& B, int n
     bool esValida = D.Esta(solucion_usuario); //comprobamos que la letra esta en el diccionario
     
     if (esValida && PuedeFormar(solucion_usuario, disponibles)){
-        int puntuacion = CalcularPuntuacion(solucion_usuario, L);
-        cout << solucion_usuario << " Puntuacion: " << puntuacion << endl;
+        if(modo == 'P'){
+            int puntuacion = CalcularPuntuacion(solucion_usuario, L);
+            cout << solucion_usuario << " Puntuacion: " << puntuacion << endl;
+        }else
+            cout << solucion_usuario << " Longitud: " << solucion_usuario.size() << endl;
         
     } else if (!esValida) {
         cout << "La palabra \"" << solucion_usuario << "\" no se encuentra en el diccionario." << endl;
@@ -281,29 +284,43 @@ void JugarRonda(const Diccionario& D, const LettersSet& L, BolsaLetras& B, int n
         cout << "La palabra \"" << solucion_usuario << "\" no se puede formar con las letras disponibles." << endl;
     }
     
-    // 4. Encontrar y mostrar las soluciones del programa
+    // encontrar y mostrar las soluciones del programa
     cout << endl << "Mis soluciones son:" << endl;
     vector<string> solucion_programa = EncontrarMejoresPalabras(D, disponibles, L, modo);
     
-    int mejor_valor = -1;
-    if (!solucion_programa.empty()) {
-        const string& mejor_palabra_ejemplo = solucion_programa[0];
-        if (modo == 'L') {
-            mejor_valor = (int)mejor_palabra_ejemplo.size();
-        } else if (modo == 'P') {
-            mejor_valor = CalcularPuntuacion(mejor_palabra_ejemplo, L);
+    for (const string& palabra : solucion_programa){
+        if(modo == 'P'){
+            int puntuacion = CalcularPuntuacion(palabra, L);
+            cout << palabra << " Puntuacion: " << puntuacion << endl;
+        }else
+            cout << palabra << " Longitud: " << palabra.size() << endl;
+    }
+    
+    if (!solucion_programa.empty()){
+        bool usuario_valido = D.Esta(solucion_usuario) && PuedeFormar(solucion_usuario, disponibles);
+        string mejor;
+        
+        if(usuario_valido){
+            bool mejorEsPrograma;
+            if(modo == 'P'){
+                int puntuacion_usuario = CalcularPuntuacion(solucion_usuario, L);
+                int puntuacion_programa = CalcularPuntuacion(solucion_programa[0], L);
+                // Si el programa tiene puntuación mayor, es mejor
+                mejorEsPrograma = (puntuacion_usuario < puntuacion_programa);
+            }else{
+                // Modo longitud: comparar longitud de las palabras
+                mejorEsPrograma = (solucion_usuario.size() < solucion_programa[0].size());
+            }
+            
+            mejor = mejorEsPrograma ? solucion_programa[0] : solucion_usuario;
+        }else{
+            // Si el usuario no tiene palabra válida, la mejor es la del programa
+            mejor = solucion_programa[0];
         }
-    }
-    
-    for (const string& palabra : solucion_programa) {
-        int puntuacion = CalcularPuntuacion(palabra, L);
-        cout << palabra << " Puntuacion: " << puntuacion << endl;
-    }
-    
-    if (!solucion_programa.empty())
+        
         // si hay varias mejores soluciones solo mostramos la primera
-        cout << "Mejor Solucion: " << solucion_programa[0];
-    else
+        cout << "Mejor Solucion: " << mejor << endl;
+    }else
         cout << "No se encontro ninguna palabra valida con las letras disponibles." << endl;
     
 }
